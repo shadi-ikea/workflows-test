@@ -3,25 +3,10 @@ name: Actions Workflow
 on: [push]
 
 jobs:
-  run-github-actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v1
-      - name: List Files
-        run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
-          # git clone git@github:$GITHUB_REPOSITORY
-          # git checkout $GITHUB_SHA
-      - name: Simple javascript Actions
-        id: greet 
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: Shadi
-      - name: Log Greeting time
-        run: echo "${{ steps.greet.outputs.time }}"
+  # <--------------- RUN SEMANTIC RELEASE ---------------->
+  release:
+    uses: ingka-group-digital/workflows/.github/workflows/semantic-release.yml@main
+    with:
+      create-floating-tag: true
+    secrets:
+      token: ${{ secrets.RELEASE_TOKEN }}
