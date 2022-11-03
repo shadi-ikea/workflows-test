@@ -6,9 +6,8 @@ on:
 
 jobs:
   # <--------------- RUN SEMANTIC RELEASE ----------------->
-  release:
-    uses: ingka-group-digital/workflows/.github/workflows/semantic-release.yml@main
-    with:
-      create-floating-tag: true
+  execute-semantic-release:
+    uses: ingka-group-digital/workflows/.github/workflows/semantic-release.yml@v1
+    # use the following secrets as required
     secrets:
       token: ${{ secrets.RELEASE_TOKEN }}
