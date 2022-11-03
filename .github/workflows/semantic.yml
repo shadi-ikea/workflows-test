@@ -1,5 +1,5 @@
 name: Project Release
-on: workflow_dispatch
+on: push
 
 jobs:
   # <--------------- RUN SEMANTIC RELEASE ---------------->
