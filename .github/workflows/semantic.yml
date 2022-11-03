@@ -9,5 +9,7 @@ jobs:
   execute-semantic-release:
     uses: ingka-group-digital/workflows/.github/workflows/semantic-release.yml@v1
     # use the following secrets as required
+    with:
+      default-config: false
     secrets:
       token: ${{ secrets.RELEASE_TOKEN }}
